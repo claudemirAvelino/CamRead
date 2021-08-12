@@ -5,7 +5,7 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 type Props = {
     camActive: boolean,
-    closeCam: object
+    closeCam: any
 }
 
 export default function CameraExpo({ camActive, closeCam } : Props) {
@@ -20,7 +20,7 @@ export default function CameraExpo({ camActive, closeCam } : Props) {
     }, []);
 
     return (
-        <View style={styles.view}>
+        <View style={camActive ? styles.view : null}>
         {
             camActive ?
                 <Camera style={styles.camera} type={type}>
@@ -46,7 +46,7 @@ export default function CameraExpo({ camActive, closeCam } : Props) {
                     </View>
                 </Camera>
                 :
-                <Text>Teste</Text>
+                null
         }
         </View>
     )
